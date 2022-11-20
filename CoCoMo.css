@@ -21,10 +21,10 @@ body {
 #detailed {
     width: 40%;
     height: 670px;
-    background-image: url(detailed.png);
     margin: 40px 10px 0 150px;
     align-items: center;
     float: left;
+    background-color: antiquewhite;
 }
 
 #intermediate {
@@ -43,15 +43,15 @@ body {
 
 #head {
     background-color: black;
-    width: 80%;
-    height: 55px;
+    width: 90%;
+    height: 65px;
     color: white;
     text-align: center;
     padding: 10px;
     margin-bottom: 60px;
     border-radius: 5px;
     margin-top: 10px;
-    margin-left: 65px;
+    margin-left: 45px;
 }
 
 #head1 {
@@ -254,6 +254,13 @@ input[type="checkbox"] {
     margin-top: 10px;
     border-radius: 5px;
 }
+.img img{
+    
+    width: 100%;
+    height:100%;
+    
+
+}
 
 
 @media (max-width: 414px) {
@@ -296,6 +303,7 @@ input[type="checkbox"] {
     border-radius: 5px;
     margin-top: 10px;
     margin-left: 20px;
+    
 }
 #main input {
     height: 30px;
@@ -368,7 +376,6 @@ input[type="checkbox"] {
 #detailed {
     width: 90%;
     height: 500px;
-    background-image: url(detailed.png);
     margin: 40px 10px 0 20px;
     align-items: center;
     float: left;
