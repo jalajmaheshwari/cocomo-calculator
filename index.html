@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CoCoMo.css">
+    <script src="jquery-3.6.1.js"></script>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#result").hide();
+            $("#btn").click(function () {
+                
+                $('input[id="kl"]').each(function () {
+                    if ($(this).val() === '') {
+                        alert("field is empty and try again");
+                        valid = false;
+                    } else {
+                        $("#result").show();
+                    }
+                });
+            })
+
+            $("#btn1").click(function () {
+                $('input[id="klc"]').each(function () {
+                    if ($(this).val() === '') {
+                        alert("field is empty and try again");
+                        valid = false;
+                    } else {
+                        $("#result").show();
+                    }
+                });
+            })
+            $("#bsc").click(function () {
+                $("#result").hide();
+            })
+            $("#intr").click(function () {
+                $("#result").hide();
+            })
+            $("#det").click(function () {
+                $("#result").hide();
+            })
+
+            $("#det").click(function () {
+                $(this).css({
+                    width: function (index, value) {
+                        return parseFloat(value) * 1.2;
+                    },
+                    height: function (index, value) {
+                        return parseFloat(value) * 1.2;
+                    }
+                });
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="cocomo">
+        <h1>Constructive Cost Model</h1>
+    </div>
+    <form>
+        <div id="type">
+            <div id="type_in">
+                <h1>Types</h1>
+            </div>
+            <label>Basic</label> <input type="radio" id="bsc" name="fav_language" value="Basic"
+                onclick="changeBasic('main')">
+            <label>Intermediate</label> <input type="radio" id="intr" name="fav_language" value="Intermediate"
+                onclick="changeIntermediate('intermediate')">
+            <label>Detailed</label> <input type="radio" id="der" name="fav_language" value="Detailed"
+                onclick="changedetailed('detailed')">
+        </div>
+    </form>
+
+    <div id="intermediate" style="display: none;" style="display: visible;">
+        <div id="head">
+            <h1>Intermediate CoCoMo Module</h1>
+        </div>
+
+
+        <div class="table-responsive" style="width: 100%;height:20%;">
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">PRODUCT ATTRIBUTES</th>
+                        <th scope="col">very Low</th>
+                        <th scope="col">Low</th>
+                        <th scope="col">Nominal</th>
+                        <th scope="col">High</th>
+                        <th scope="col">Very High</th>
+                        <th scope="col">Extra High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">RELY</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="rvl" value="0.75"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="rl" value="0.88"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="rn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="rh" value="0.15"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="rvh" value="1.40"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="reh" value="1.40"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">DATA</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="dl" value="0.94"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="dvl" value="0.75"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="dn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="dh" value="1.08"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="dvh" value="1.16"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="deh" value="1.16"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">CPLX</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="cvl" value="0.70"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="cl" value="0.85"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="cn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="ch" value="1.15"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="cvh" value="1.30"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="ceh" value="1.60"></TD>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">COMPUTER ATTRIBUTES</th>
+                        <th scope="col">very Low</th>
+                        <th scope="col">Low</th>
+                        <th scope="col">Nominal</th>
+                        <th scope="col">High</th>
+                        <th scope="col">Very High</th>
+                        <th scope="col">Extra High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">TIME</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tvl" value="0.70"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tl" value="0.85"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="th" value="1.11"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tvh" value="1.30"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="teh" value="1.66"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">STOR</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="svl" value="0.70"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="sl" value="0.85"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="sn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="sh" value="1.06"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="svh" value="1.21"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="seh" value="1.56"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">VIRT</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="vvl" value="0.70"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="vl" value="0.87"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="vn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="vh" value="1.15"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="vvh" value="1.30"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="veh" value="1.56"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">TURN</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuvl" value="0.70"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tul" value="0.87"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tun" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="1.07"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="1.15"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="1.56"></TD>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table">
+                <thead class="thead-big">
+                    <tr>
+                        <th scope="col">PERSONAL ATTRIBUTES</th>
+                        <th scope="col">very Low</th>
+                        <th scope="col">Low</th>
+                        <th scope="col">Nominal</th>
+                        <th scope="col">High</th>
+                        <th scope="col">Very High</th>
+                        <th scope="col">Extra High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">ACAP</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tvl" value="1.46"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tl" value="1.19"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="th" value="0.86"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tvh" value="0.71"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="teh" value="0.71"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">AEXP</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="svl" value="1.29"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="sl" value="1.13"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="sn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="sh" value="0.91"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="svh" value="0.82"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="seh" value="0.82"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">PCAP</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="vvl" value="1.42"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="vl" value="1.17"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="vn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="vh" value="0.86"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="vvh" value="0.70"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="veh" value="0.70"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">VEXP</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuvl" value="1.21"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tul" value="1.10"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tun" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="0.90"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="0.90"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="0.90"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">LEXP</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuvl" value="1.14"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tul" value="1.07"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="tun" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="0.95"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="0.95"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="tuh" value="0.95"></TD>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">PROJECT ATTRIBUTES</th>
+                        <th scope="col">very Low</th>
+                        <th scope="col">Low</th>
+                        <th scope="col">Nominal</th>
+                        <th scope="col">High</th>
+                        <th scope="col">Very High</th>
+                        <th scope="col">Extra High</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">MODP</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="rvl" value="1.24"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="rl" value="1.10"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="rn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="rh" value="0.91"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="rvh" value="0.82"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="reh" value="0.82"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">TOOL</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="dl" value="1.24"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="dvl" value="1.10"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="dn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="dh" value="0.91"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="dvh" value="0.83"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="deh" value="0.83"></TD>
+                    </tr>
+                    <tr>
+                        <th scope="row">SCED</th>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="cvl" value="1.23"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="cl" value="1.08"></td>
+                        <td><input type="checkbox" onclick="fun(this.checked,this.value)" id="cn" value="1.00"></td>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="ch" value="1.04"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="cvh" value="1.10"></TD>
+                        <TD><input type="checkbox" onclick="fun(this.checked,this.value)" id="ceh" value="1.10"></TD>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="intermediate_tools">
+            <label>Organic</label> <input type="checkbox" id="orga"><br>
+            <label>Semidetached</label> <input type="checkbox" id="smd"><br>
+            <label>Embeded</label> <input type="checkbox" id="embd"><br><br>
+            <label>KLOC</label> <input type="text" id="klc" required><br>
+            <label>Cost of Resources </label> <input type="text" id="cor" placeholder="Per Month(Optional)"><br>
+            <label>No.of Developers</label> <input type="text" id="nod" placeholder="No.Of Developers(Optional)"><br>
+
+            <button type="submit" id="btn1" onclick="fun2()"> Continue </button>
+            
+            <br><br>
+        </div>
+
+
+
+
+    </div>
+    </form>
+
+    <div id="detailed" style="display: none;" style="display: visible;">
+        <div id="head">
+            <h1> Detailed CoCoMo Module</h1>
+        </div>
+        <div class="img"></div>
+
+
+
+    </div>
+
+
+
+    <div id="main" style="display: none;" style="display: visible;">
+
+        <div id="head">
+            <h1>Basic CoCoMo Module</h1>
+        </div>
+
+
+
+        <label>Organic</label> <input type="checkbox" id="org"><br>
+        <label>Semidetached</label> <input type="checkbox" id="semi"><br>
+        <label>Embeded</label> <input type="checkbox" id="emb"><br><br>
+        <label>KLOC</label> <input type="text" id="kl" required><br>
+        <label>Cost of Resources </label> <input type="text" id="cr" placeholder="Per Month(Optional)"><br>
+        <label>No.of Developers</label> <input type="text" id="nd" placeholder="No.Of Developers(Optional)"><br>
+
+        <button type="submit" id="btn" onclick="cal()"> Continue </button>
+        <br><br>
+
+
+
+    </div>
+    <div id="result">
+        <div id="head1">
+            <h1>Result</h1>
+        </div>
+
+        <div id="res">Results are :</div>
+
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+
+</html>
